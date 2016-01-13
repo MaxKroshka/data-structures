@@ -13,7 +13,10 @@ var Stack = function() {
 
   someInstance.pop = function() {
     if(stackLength > 0){
+      var popedElement = storage[stackLength]; 
+      delete storage[stackLength];
       stackLength--;
+      return popedElement; 
     }
   };
 
