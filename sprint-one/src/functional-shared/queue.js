@@ -15,7 +15,14 @@ var Queue = function() {
 Queue.queueMethods = {
   size: function(){
     return this.stackSize;
-  } 
+  }, 
+  enqueue: function(){
+    this.stackSize++;
+  },
+  dequeue: function(value){
+    this.stackSize--;
+
+  }
 
 };
 
