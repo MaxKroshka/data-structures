@@ -36,8 +36,7 @@ var stackMethods = {
     return this.stackSize;
   },
 
-  push : function(value){
-    console.log("Stack Size: ", this.stackSize);
+  push : function(value){ 
     this.stackSize++;
     this.storage[this.stackSize] = value;
   },
