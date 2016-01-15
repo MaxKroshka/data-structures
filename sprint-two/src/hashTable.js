@@ -11,8 +11,18 @@ HashTable.prototype.insert = function(k, v) {
   if(this._storage.storage[index] === undefined){
    this._storage.storage[index] = [];
   } 
-  if (//test to see if already there. )
+
+  if(this._storage.storage[index].length > 0){
+    for(var i=0;i< this._storage.storage[index].length; i++){
+      if(this._storage.storage[index][i][0] === k){
+        this._storage.storage[index][i][1] = v; 
+        return; 
+      }
+    }
+  }
+
   this._storage.storage[index].push([k,v]);         
+
 };
 
 HashTable.prototype.retrieve = function(k) {
