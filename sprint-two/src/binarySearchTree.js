@@ -16,7 +16,7 @@ var BinarySearchTree = function(value) {
     if(currentVal === value){
       return true;
     }
-    
+
     if(currentVal > value && this.left){ 
       return this.left.contains(value);
     }
@@ -27,9 +27,16 @@ var BinarySearchTree = function(value) {
     return false;  
   };
 
-  newTree.depthFirstLog = function(){
+  newTree.depthFirstLog = function(func){
+    func(this.value);
+    if(this.left){
+      this.left.depthFirstLog(func);
+    }
+    else if(this.right){
+      this.right.depthFirstLog(func);
+    }
   };
-
+  
  return newTree; 
 };
 
