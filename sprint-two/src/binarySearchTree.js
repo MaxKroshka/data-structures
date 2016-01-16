@@ -5,39 +5,32 @@ var BinarySearchTree = function(value) {
   newTree.insert = function(value){
     var currentVal = this.value; 
     if(currentVal > value){
-      if(newTree.left === undefined){
-        newTree.left = BinarySearchTree(value);   
-      } else {
-        if(newTree.left.value > value){
-          newTree.left.left = BinarySearchTree(value);
-        }
-        else {
-          newTree.left.right = BinarySearchTree(value); 
-        }
-      }
+      newTree.left === undefined ? newTree.left = BinarySearchTree(value) : newTree.left.insert(value);
     } else {
-      if(newTree.left === undefined){
-        newTree.right = BinarySearchTree(value);   
-      } else {
-        if(newTree.right.value > value){
-          newTree.right.left = BinarySearchTree(value);
-        }
-        else {
-          newTree.right.right = BinarySearchTree(value); 
-        }
-      }
-       
+      newTree.right === undefined ? newTree.right = BinarySearchTree(value) : newTree.right.insert(value); 
     }
   };
 
-  newTree.contains = function(){
+  newTree.contains = function(value){
+    var currentVal = this.value;
+    if(currentVal === value){
+      return true;
+    }
+    
+    if(currentVal > value && this.left){ 
+      return this.left.contains(value);
+    }
+    else if(currentVal < value && this.right){
+      return this.right.contains(value);
+    }
+
+    return false;  
   };
 
   newTree.depthFirstLog = function(){
   };
 
-
-  return newTree; 
+ return newTree; 
 };
 
 
