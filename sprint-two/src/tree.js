@@ -43,8 +43,13 @@ treeMethods.removeFromParent = function(){
   }
 };
 
-treeMethods.traverse = function(){
-  
+treeMethods.traverse = function(callback){
+  callback(this.value);
+  if(this.children.length > 0){
+   for(var i = 0; i < this.children.length; i++){
+    this.children[i].traverse(callback);
+   } 
+  }
 };
 
 
