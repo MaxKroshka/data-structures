@@ -24,7 +24,11 @@ var DoublyLinkedList = function() {
 
   list.removeHead = function() {
     var prevHead = list.head.value; 
-    list.head = list.head.next; 
+    list.head = list.head.next;
+    list.head.previous = null;
+    if(list.head.value === list.tail.value){
+      list.head.next = null;
+    } 
     return prevHead; 
   };
 
@@ -32,6 +36,9 @@ var DoublyLinkedList = function() {
     var prevTail = list.tail.value; 
     list.tail = list.tail.previous; 
     list.tail.next = null;
+    if(list.tail.value === list.head.value){
+      list.head.previous = null;
+    } 
     return prevTail; 
   };
 
