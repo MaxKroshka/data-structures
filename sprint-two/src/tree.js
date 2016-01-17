@@ -56,16 +56,3 @@ treeMethods.traverse = function(callback){
 /*
  * Complexity: What is the time complexity of the above functions?
  */
-// treeMethods.contains = function(target, tree){
-//   var found = false;
-
-//   var inspect = function(tree){
-//     var children = tree.children;
-//     if(tree.value === target){found = true;}
-//     for(var i = 0; i < children.length; i++){
-//       inspect(children[i]);
-//     }
-//   };
-//   inspect(this);
-//   return found;
-// };
