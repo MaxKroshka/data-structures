@@ -32,6 +32,20 @@ treeMethods.contains = function(target) {
 
 };
 
+treeMethods.removeFromParent = function(){
+  var parentsChildren = this.parent.children;
+  this.parent = undefined;
+  for(var i = 0; i < parentsChildren.length; i++){
+    if(this.value === parentsChildren[i].value){
+      var removed = parentsChildren.splice(i,1);
+      return removed;
+    }
+  }
+};
+
+treeMethods.traverse = function(){
+  
+};
 
 
 /*
